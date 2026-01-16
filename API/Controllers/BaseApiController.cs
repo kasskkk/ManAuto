@@ -16,11 +16,22 @@ namespace API.Controllers
 
         protected ActionResult HandleResult<T>(Result<T> result)
         {
-            if (!result.IsSuccess && result.Code == 404) return NotFound();
+            if (result == null) return NotFound();
 
-            if (result.IsSuccess && result.Value != null) return Ok(result.Value);
+            if (result.IsSuccess)
+            {
+                if (result.Value is Unit || result.Value == null)
+                    return NoContent();
 
-            return BadRequest(result.Error);
+                return Ok(result.Value);
+            }
+
+            return result.Code switch
+            {
+                404 => NotFound(result.Error),
+                _ => BadRequest(result.Error)
+            };
+
         }
     }
 }
