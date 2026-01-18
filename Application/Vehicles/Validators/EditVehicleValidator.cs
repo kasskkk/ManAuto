@@ -1,6 +1,4 @@
-using System;
 using Application.Vehicles.Commands;
-using Application.Vehicles.DTOs;
 using FluentValidation;
 
 namespace Application.Vehicles.Validators;

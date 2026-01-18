@@ -1,10 +1,7 @@
-using System;
 using Application.Core;
 using Application.Vehicles.DTOs;
 using AutoMapper;
-using Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Persistence;
 
 namespace Application.Vehicles.Commands;

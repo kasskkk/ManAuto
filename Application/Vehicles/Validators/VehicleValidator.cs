@@ -1,4 +1,3 @@
-using System;
 using Application.Vehicles.DTOs;
 using FluentValidation;
 
