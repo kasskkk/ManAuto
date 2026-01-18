@@ -1,4 +1,5 @@
 using System;
+using Application.Accounts.DTOs;
 using Application.Vehicles.DTOs;
 using AutoMapper;
 using Domain.Entities;
@@ -12,5 +13,7 @@ public class MappingProfiles : Profile
         CreateMap<CreateVehicleDto, Vehicle>();
         CreateMap<EditVehicleDto, Vehicle>();
         CreateMap<Vehicle, VehicleDto>();
+        CreateMap<RegisterDto, User>()
+            .ForMember(d => d.UserName, opt => opt.MapFrom(x => x.Email));
     }
 }
