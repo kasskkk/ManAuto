@@ -20,6 +20,12 @@ namespace Persistence
             .OnDelete(DeleteBehavior.Restrict);
 
             builder.Entity<Rental>()
+            .HasOne(x => x.Vehicle)
+            .WithMany(x => x.Rentals)
+            .HasForeignKey(x => x.VehicleId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Rental>()
                 .Property(x => x.TotalPrice)
                 .HasPrecision(18, 2);
         }
