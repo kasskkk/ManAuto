@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 API/manauto.db
+API/manauto.db-shm
+API/manauto.db-wal
