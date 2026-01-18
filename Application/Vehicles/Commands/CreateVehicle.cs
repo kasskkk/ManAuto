@@ -24,7 +24,7 @@ public class CreateVehicle
 
             var result = await context.SaveChangesAsync(cancellationToken) > 0;
 
-            if (!result) return Result<string>.Failure("Failed to create vehicle", 400);
+            if (!result) return Result<string>.Failure("Failed to create vehicle", 500);
 
             return Result<string>.Success(vehicle.Id);
         }

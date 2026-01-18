@@ -16,6 +16,7 @@
     <Folder Include="Vehicles\" />
     <Folder Include="Vehicles\Commands\" />
     <Folder Include="Vehicles\DTOs\" />
+    <Folder Include="Vehicles\Queries\" />
     <Folder Include="Vehicles\Validators\" />
   </ItemGroup>
 

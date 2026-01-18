@@ -5,10 +5,11 @@ using FluentValidation;
 
 namespace Application.Vehicles.Validators;
 
-public class EditVehicleValidator : BaseVehicleValidator<EditVehicle.Command, EditVehicleDto>
+public class EditVehicleValidator : AbstractValidator<EditVehicle.Command>
 {
-    public EditVehicleValidator() : base(x => x.VehicleDto)
+    public EditVehicleValidator() 
     {
-        RuleFor(x => x.VehicleDto.Id).NotEmpty().WithMessage("Id is required");
+        RuleFor(x => x.VehicleDto).SetValidator(new VehicleValidator());
+        RuleFor(x => x.VehicleDto.Id).NotEmpty().WithMessage("Id is required for editing");
     }
 }

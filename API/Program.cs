@@ -1,5 +1,9 @@
 using API.Middleware;
+using Application.Core;
+using Application.Vehicles.Queries;
+using Application.Vehicles.Validators;
 using Domain.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -19,6 +23,15 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddMediatR(x =>
+{
+    x.RegisterServicesFromAssemblyContaining<GetVehicleList.Handler>();
+    x.AddOpenBehavior(typeof(ValidationBehavior<,>));
+});
+
+
+builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
+builder.Services.AddValidatorsFromAssemblyContaining<VehicleValidator>();
 builder.Services.AddTransient<ExceptionMiddleware>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

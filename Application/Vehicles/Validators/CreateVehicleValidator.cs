@@ -1,12 +1,13 @@
 using System;
 using Application.Vehicles.Commands;
-using Application.Vehicles.DTOs;
+using FluentValidation;
 
 namespace Application.Vehicles.Validators;
 
-public class CreateVehicleValidator : BaseVehicleValidator<CreateVehicle.Command, CreateVehicleDto>
+public class CreateVehicleValidator : AbstractValidator<CreateVehicle.Command>
 {
-    public CreateVehicleValidator() : base(x => x.VehicleDto)
+    public CreateVehicleValidator()
     {
+        RuleFor(x => x.VehicleDto).SetValidator(new VehicleValidator());
     }
 }

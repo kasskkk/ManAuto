@@ -19,7 +19,7 @@ public class EditVehicle
     {
         public async Task<Result<Unit>> Handle(Command request, CancellationToken cancellationToken)
         {
-            var vehicle = await context.Vehicles.FirstOrDefaultAsync(x => x.Id == request.VehicleDto.Id, cancellationToken);
+            var vehicle = await context.Vehicles.FindAsync([request.VehicleDto.Id], cancellationToken);
 
             if (vehicle == null) return Result<Unit>.Failure("Vehicle not found", 404);
 
