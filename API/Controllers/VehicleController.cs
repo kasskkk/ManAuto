@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-public class VehicleController : BaseApiController
+public class VehiclesController : BaseApiController
 {
     [HttpPost]
     public async Task<ActionResult<string>> Create(CreateVehicleDto vehicleDto)

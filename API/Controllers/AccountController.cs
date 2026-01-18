@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
-public class AccountController : BaseApiController
+public class AccountsController : BaseApiController
 {
     [HttpPost("register")]
     public async Task<ActionResult> Register(RegisterDto registerDto)

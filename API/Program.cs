@@ -7,6 +7,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Persistence.Seeds;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,6 +76,7 @@ try
     var userManager = services.GetRequiredService<UserManager<User>>();
     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
     await context.Database.MigrateAsync();
+    await DbInitializer.SeedAsync(context, userManager);
 }
 catch (Exception ex)
 {
