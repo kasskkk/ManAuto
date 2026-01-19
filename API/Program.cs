@@ -1,9 +1,11 @@
 using API.Middleware;
 using Application.Core;
+using Application.Interfaces;
 using Application.Vehicles.Queries;
 using Application.Vehicles.Validators;
 using Domain.Entities;
 using FluentValidation;
+using Infrastructure.Security;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -30,7 +32,7 @@ builder.Services.AddMediatR(x =>
     x.AddOpenBehavior(typeof(ValidationBehavior<,>));
 });
 
-
+builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 builder.Services.AddValidatorsFromAssemblyContaining<VehicleValidator>();
 builder.Services.AddTransient<ExceptionMiddleware>();
