@@ -1,11 +1,12 @@
 import Layout from './Layout'
+import { Outlet } from 'react-router'
 
 function App() {
 
   return (
     <>
       <Layout>
-        
+        <Outlet />
       </Layout>
     </>
   )
