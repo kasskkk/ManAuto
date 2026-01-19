@@ -1,10 +1,12 @@
-import { Button } from '../components/ui/button'
+import Layout from './Layout'
 
 function App() {
 
   return (
     <>
-      <Button variant="outline">Test</Button>
+      <Layout>
+        
+      </Layout>
     </>
   )
 }
