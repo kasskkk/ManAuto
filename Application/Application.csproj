@@ -17,6 +17,11 @@
     <Folder Include="Accounts\DTOs\" />
     <Folder Include="Accounts\Validators\" />
     <Folder Include="Core\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Rentals\" />
+    <Folder Include="Rentals\Commands\" />
+    <Folder Include="Rentals\DTOs\" />
+    <Folder Include="Rentals\Validators\" />
     <Folder Include="Vehicles\" />
     <Folder Include="Vehicles\Commands\" />
     <Folder Include="Vehicles\DTOs\" />
