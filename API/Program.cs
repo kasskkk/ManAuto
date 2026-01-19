@@ -32,6 +32,7 @@ builder.Services.AddMediatR(x =>
     x.AddOpenBehavior(typeof(ValidationBehavior<,>));
 });
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 builder.Services.AddAutoMapper(typeof(MappingProfiles).Assembly);
 builder.Services.AddValidatorsFromAssemblyContaining<VehicleValidator>();
@@ -57,7 +58,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
-    // app.MapIdentityApi<User>();
+    app.MapIdentityApi<User>();
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -65,6 +66,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(x => x.AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowCredentials()
+    .WithOrigins("https://localhost:3000"));
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

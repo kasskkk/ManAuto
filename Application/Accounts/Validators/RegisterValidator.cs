@@ -1,5 +1,4 @@
 using System;
-using Application.Accounts.DTOs;
 using FluentValidation;
 using static Application.Accounts.Commands.Register;
 
