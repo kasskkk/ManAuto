@@ -17,6 +17,9 @@
     <Folder Include="Accounts\DTOs\" />
     <Folder Include="Accounts\Validators\" />
     <Folder Include="Core\" />
+    <Folder Include="Dashboard\" />
+    <Folder Include="Dashboard\DTOs\" />
+    <Folder Include="Dashboard\Queries\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Rentals\" />
     <Folder Include="Rentals\Commands\" />
