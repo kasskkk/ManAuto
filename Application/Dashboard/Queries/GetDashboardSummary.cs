@@ -22,7 +22,9 @@ public class GetDashboardSummary
 
             var totalVehiclesRented = await context.Rentals.CountAsync(x => x.RentalStatus != RentalStatus.Cancelled, cancellationToken);
 
-            var activeRentals = await context.Rentals.CountAsync(x => x.RentalStatus != (RentalStatus.Cancelled | RentalStatus.Returned), cancellationToken);
+            var activeRentals = await context.Rentals.CountAsync(x =>
+                x.RentalStatus != RentalStatus.Cancelled
+                && x.RentalStatus != RentalStatus.Returned, cancellationToken);
 
             var monthlyRevenue = await context.Rentals
                 .Where(r => r.CreatedAt >= firstDayOfMonth && r.RentalStatus != RentalStatus.Cancelled)
