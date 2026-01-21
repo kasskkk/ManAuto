@@ -18,12 +18,12 @@ export default function DashboardTable() {
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead className="w-[250px]">Car Model</TableHead>
-                            <TableHead>Customer</TableHead>
-                            <TableHead>Date</TableHead>
-                            <TableHead>Amount</TableHead>
-                            <TableHead>Status</TableHead>
-                            <TableHead className="text-right">Actions</TableHead>
+                            <TableHead className="w-[250px]">CAR MODEL</TableHead>
+                            <TableHead>CUSTOMER</TableHead>
+                            <TableHead>DATE</TableHead>
+                            <TableHead>AMOUNT</TableHead>
+                            <TableHead>STATS</TableHead>
+                            <TableHead className="text-right">ACTIONS</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>

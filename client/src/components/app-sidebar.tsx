@@ -1,25 +1,8 @@
 import { Calendar, Car, ChartNoAxesColumn, ChevronDown, ChevronUp, LayoutDashboard, User2, Users } from "lucide-react"
-
-import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarHeader,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, } from "@/components/ui/sidebar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, } from "@/components/ui/dropdown-menu"
 import { Link } from "react-router"
-// Menu items.
+
 const items = [
     {
         title: "Dashboard",
@@ -33,7 +16,7 @@ const items = [
     },
     {
         title: "Bookings",
-        url: "/bookings",
+        url: "/rentals",
         icon: Calendar,
     },
     {
@@ -47,6 +30,7 @@ const items = [
         icon: ChartNoAxesColumn,
     },
 ]
+
 export function AppSidebar() {
     return (
         <Sidebar >
