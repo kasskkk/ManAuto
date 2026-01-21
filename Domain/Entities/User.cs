@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Domain
+namespace Domain.Entities
 {
     public class User : IdentityUser
     {
-
+        public ICollection<Rental> Rentals { get; set; } = [];
     }
 }

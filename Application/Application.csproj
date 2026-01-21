@@ -11,4 +11,33 @@
     <ProjectReference Include="..\Persistence\Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Accounts\" />
+    <Folder Include="Accounts\Commands\" />
+    <Folder Include="Accounts\DTOs\" />
+    <Folder Include="Accounts\Validators\" />
+    <Folder Include="Core\" />
+    <Folder Include="Customers\" />
+    <Folder Include="Customers\DTOs\" />
+    <Folder Include="Dashboard\" />
+    <Folder Include="Dashboard\DTOs\" />
+    <Folder Include="Dashboard\Queries\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Rentals\" />
+    <Folder Include="Rentals\Commands\" />
+    <Folder Include="Rentals\DTOs\" />
+    <Folder Include="Rentals\Validators\" />
+    <Folder Include="Vehicles\" />
+    <Folder Include="Vehicles\Commands\" />
+    <Folder Include="Vehicles\DTOs\" />
+    <Folder Include="Vehicles\Queries\" />
+    <Folder Include="Vehicles\Validators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="MediatR" Version="14.0.0" />
+  </ItemGroup>
+
 </Project>
