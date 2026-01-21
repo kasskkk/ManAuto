@@ -4,7 +4,7 @@ import type { DashboardSummary } from "../types";
 
 export const useDashboard = () => {
 
-    const { data: dashboardSummary } = useQuery({
+    const { data: dashboardSummary, isLoading: isLoadingDashboard } = useQuery({
         queryKey: ['dashboardSummary'],
         queryFn: async () => {
             const response = await agent.get<DashboardSummary>('/dashboard')
@@ -13,6 +13,7 @@ export const useDashboard = () => {
     });
 
     return {
-        dashboardSummary
+        dashboardSummary,
+        isLoadingDashboard
     }
 }

@@ -30,11 +30,36 @@ public class GetDashboardSummary
                 .Where(r => r.CreatedAt >= firstDayOfMonth && r.RentalStatus != RentalStatus.Cancelled)
                 .SumAsync(r => r.TotalPrice, cancellationToken);
 
+            var thirtyDaysAgo = DateTime.UtcNow.Date.AddDays(-29);
+
+            var dailyStats = await context.Rentals
+                .Where(r => r.CreatedAt >= thirtyDaysAgo && r.RentalStatus != RentalStatus.Cancelled)
+                .GroupBy(r => r.CreatedAt.Date)
+                .Select(g => new
+                {
+                    Date = g.Key,
+                    Count = g.Count()
+                })
+                .ToListAsync(cancellationToken);
+
+            var rentalTrends = Enumerable.Range(0, 30)
+                .Select(offset =>
+                {
+                    var date = thirtyDaysAgo.AddDays(offset);
+                    var stats = dailyStats.FirstOrDefault(s => s.Date == date);
+                    return new DashboardRentalTrendsDto
+                    {
+                        Date = date.ToString("dd.MM"),
+                        RentalCount = stats?.Count ?? 0
+                    };
+                }).ToList();
+
             var dashboardSummary = new GetDashboardSummaryDto
             {
                 TotalVehiclesRented = totalVehiclesRented,
                 ActiveRentals = activeRentals,
-                MonthlyRevenue = monthlyRevenue
+                MonthlyRevenue = monthlyRevenue,
+                RentalTrends = rentalTrends
             };
 
             return Result<GetDashboardSummaryDto>.Success(dashboardSummary);
