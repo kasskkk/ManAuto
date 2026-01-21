@@ -18,7 +18,7 @@ const chartConfig = {
     },
 } satisfies ChartConfig
 
-export default function DashboardAreaChart({data}: Props) {
+export default function DashboardAreaChart({ data }: Props) {
     return (
         <Card className="md:col-span-3">
             <CardHeader>

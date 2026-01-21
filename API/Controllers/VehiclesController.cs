@@ -34,7 +34,7 @@ public class VehiclesController : BaseApiController
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<VehicleDto>> Details(string id)
+    public async Task<ActionResult<VehicleDetailsDto>> Details(string id)
     {
         return HandleResult(await Mediator.Send(new GetVehicleDetails.Query { Id = id }));
     }

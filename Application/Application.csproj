@@ -17,6 +17,8 @@
     <Folder Include="Accounts\DTOs\" />
     <Folder Include="Accounts\Validators\" />
     <Folder Include="Core\" />
+    <Folder Include="Customers\" />
+    <Folder Include="Customers\DTOs\" />
     <Folder Include="Dashboard\" />
     <Folder Include="Dashboard\DTOs\" />
     <Folder Include="Dashboard\Queries\" />

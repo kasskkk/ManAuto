@@ -2,6 +2,7 @@ using System;
 using Application.Core;
 using Application.Dashboard.DTOs;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Domain.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,7 @@ public class GetDashboardSummary
 {
     public class Query : IRequest<Result<GetDashboardSummaryDto>> { }
 
-    public class Handler(AppDbContext context) : IRequestHandler<Query, Result<GetDashboardSummaryDto>>
+    public class Handler(AppDbContext context, IMapper mapper) : IRequestHandler<Query, Result<GetDashboardSummaryDto>>
     {
         public async Task<Result<GetDashboardSummaryDto>> Handle(Query request, CancellationToken cancellationToken)
         {
@@ -54,12 +55,19 @@ public class GetDashboardSummary
                     };
                 }).ToList();
 
+            var recentRentals = await context.Rentals
+                .OrderByDescending(r => r.CreatedAt)
+                .Take(6)
+                .ProjectTo<DashboardRecentRentsDto>(mapper.ConfigurationProvider) 
+                .ToListAsync(cancellationToken);
+
             var dashboardSummary = new GetDashboardSummaryDto
             {
                 TotalVehiclesRented = totalVehiclesRented,
                 ActiveRentals = activeRentals,
                 MonthlyRevenue = monthlyRevenue,
-                RentalTrends = rentalTrends
+                RentalTrends = rentalTrends,
+                Rentals = recentRentals
             };
 
             return Result<GetDashboardSummaryDto>.Success(dashboardSummary);

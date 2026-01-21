@@ -71,9 +71,9 @@ export default function VehiclesPage() {
               <TableRow>
                 <TableHead className="w-[250px]">CAR MODEL</TableHead>
                 <TableHead>LICENSE PLATE</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead>CATEGORY</TableHead>
+                <TableHead>STATUS</TableHead>
+                <TableHead className="text-right">ACTIONS</TableHead>
               </TableRow>
             </TableHeader>
             {vehicles?.map(vehicle => (

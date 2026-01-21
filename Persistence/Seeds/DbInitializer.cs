@@ -14,9 +14,9 @@ public class DbInitializer
         {
             var users = new List<User>
             {
-                new() {UserName = "bob@test.com",Email = "bob@test.com"},
-                new() {UserName = "tom@test.com",Email = "tom@test.com"},
-                new() {UserName = "jane@test.com",Email = "jane@test.com"},
+                new() {UserName = "bob@test.com",Email = "bob@test.com", PhoneNumber="999999999"},
+                new() {UserName = "tom@test.com",Email = "tom@test.com", PhoneNumber="888888888"},
+                new() {UserName = "jane@test.com",Email = "jane@test.com", PhoneNumber="777777777"},
             };
 
             foreach (var user in users)
@@ -24,7 +24,7 @@ public class DbInitializer
                 await userManager.CreateAsync(user, "Pa$$w0rd");
             }
         }
-        ;
+
 
         if (!context.Vehicles.Any())
         {

@@ -25,7 +25,7 @@ export default function DashboardPage() {
         <DashboardPieChart />
       </div>
 
-      <DashboardTable />
+      <DashboardTable dashboardRecentRentals={dashboardSummary.rentals} />
     </div>
   )
 }
