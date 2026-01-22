@@ -3,14 +3,14 @@ import DashboardAreaChart from './DashboardAreaChart';
 import DashboardPieChart from './DashboardPieChart';
 import DashboardTable from './DashboardTable';
 import DashboardStats from './DashboardStats';
-import DashboardSkeleton from './DashboardSkeleton';
+import DashboardPageSkeleton from './DashboardPageSkeleton';
 
 export default function DashboardPage() {
   const { dashboardSummary, isLoadingDashboard } = useDashboard() || {};
 
   if (isLoadingDashboard || !dashboardSummary) {
     return (
-      <DashboardSkeleton />
+      <DashboardPageSkeleton />
     )
   }
 

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function DashboardSkeleton() {
+export default function DashboardPageSkeleton() {
     return (
         <div className="flex flex-col gap-6 p-4">
             <div className="grid gap-4 md:grid-cols-3">
