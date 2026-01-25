@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using Domain.Enums;
 
 namespace Domain.Entities;
@@ -9,9 +10,12 @@ public class Vehicle
     public required string Model { get; set; }
     public required string LicensePlate { get; set; }
     public required int ProductionYear { get; set; }
+    [Column(TypeName = "decimal(18,2)")]
     public decimal PricePerDay { get; set; }
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     public VehicleType VehicleType { get; set; }
+    public required string MainPhotoUrl { get; set; }
     public ICollection<Rental> Rentals { get; set; } = [];
+    public ICollection<Photo> Photos { get; set; } = [];
 }

@@ -48,7 +48,7 @@ export default function DashboardPieChart() {
                                                 y={viewBox.cy}
                                                 className="fill-foreground text-3xl font-bold"
                                             >
-                                                662
+                                                662 mocked data
                                             </tspan>
                                             <tspan
                                                 x={viewBox.cx}
