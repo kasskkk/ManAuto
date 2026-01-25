@@ -9,9 +9,10 @@ import { useAccounts } from "@/lib/hooks/useAccounts"
 import { Loader2, LockKeyhole } from "lucide-react"
 import { toast } from "sonner"
 import { loginSchema } from "@/lib/schemas/loginSchema"
+import { Link } from "react-router"
 
 export function LoginForm() {
-    const { login, isLoggingIn } = useAccounts()
+    const { loginUser, isLoggingIn } = useAccounts()
 
     const form = useForm({
         defaultValues: {
@@ -22,7 +23,7 @@ export function LoginForm() {
             onChange: loginSchema,
         },
         onSubmit: async ({ value }) => {
-            await login(value)
+            await loginUser.mutateAsync(value)
             toast("You have been successfully loged in")
         },
     })
@@ -94,6 +95,7 @@ export function LoginForm() {
                             type="submit"
                             className="w-full font-semibold"
                             disabled={isLoggingIn}
+                            variant="outline"
                         >
                             {isLoggingIn ? (
                                 <>
@@ -105,6 +107,18 @@ export function LoginForm() {
                             )}
                         </Button>
                     </form>
+
+                    <div className="mt-6">
+                        <Button
+                            type="submit"
+                            className="w-full font-semibold"
+                            disabled={isLoggingIn}
+                        >
+                            <Link to="/registerForm">
+                                Register
+                            </Link>
+                        </Button>
+                    </div>
 
                     <div className="mt-6">
                         <div className="relative">
@@ -120,7 +134,7 @@ export function LoginForm() {
                         <Button
                             variant="outline"
                             className="w-full mt-4 border-dashed border-primary/50 hover:bg-primary/5"
-                            onClick={() => login({ email: "bob@test.com", password: "Pa$$w0rd" })}
+                            onClick={() => loginUser.mutateAsync({ email: "bob@test.com", password: "Pa$$w0rd" })}
                             disabled={isLoggingIn}
                         >
                             🚀 Quick Login as Bob

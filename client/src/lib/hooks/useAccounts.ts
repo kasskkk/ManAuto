@@ -4,6 +4,7 @@ import type { User } from "../types/user";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import type { LoginSchema } from "../schemas/loginSchema";
+import type { RegisterSchema } from "../schemas/registerSchema";
 
 
 
@@ -41,12 +42,24 @@ export const useAccounts = () => {
         }
     });
 
+    const registerUser = useMutation({
+        mutationFn: async (creds: RegisterSchema) => {
+            await agent.post('../register', creds)
+        },
+        onSuccess: () => {
+            toast.success('Register successfull - You may log in')
+            navigate('/login')
+        },
+    });
+
     return {
         user,
         isLoggedIn: !!user,
         isLoadingUser,
-        login: loginUser.mutateAsync,
+        loginUser,
         isLoggingIn: loginUser.isPending,
-        loginError: loginUser.error
+        loginError: loginUser.error,
+        registerUser,
+        isRegisteringIn: registerUser.isPending,
     };
 };

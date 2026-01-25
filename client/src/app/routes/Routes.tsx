@@ -8,6 +8,7 @@ import VehiclesPage from "@/features/vehicles/VehiclesPage"
 import { VehicleForm } from "@/features/vehicles/form/VehicleForm"
 import { LoginForm } from "@/features/users/LoginForm"
 import VehicleDetails from "@/features/vehicles/VehicleDetails"
+import RegisterForm from "@/features/users/RegisterForm"
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
             { path: 'raports', element: <RaportsPage /> },
             { path: 'vehicleForm', element: <VehicleForm /> },
             { path: 'loginForm', element: <LoginForm /> },
+            { path: 'registerForm', element: <RegisterForm /> },
             { path: 'details', element: <VehicleDetails /> },
         ]
     }
