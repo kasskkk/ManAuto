@@ -1,4 +1,5 @@
 using System;
+using API.Requests;
 using Application.Vehicles.Commands;
 using Application.Vehicles.DTOs;
 using Application.Vehicles.Queries;
@@ -9,9 +10,9 @@ namespace API.Controllers;
 public class VehiclesController : BaseApiController
 {
     [HttpPost]
-    public async Task<ActionResult<string>> Create([FromForm] CreateVehicleDto vehicleDto, List<IFormFile> files)
+    public async Task<ActionResult<string>> Create([FromForm] CreateVehicleRequest vehicleRequest)
     {
-        return HandleResult(await Mediator.Send(new CreateVehicle.Command { VehicleDto = vehicleDto, Files = files }));
+        return HandleResult(await Mediator.Send(new CreateVehicle.Command { VehicleDto = vehicleRequest.VehicleDto, Files = vehicleRequest.Files }));
     }
 
     [HttpPut("{id}")]

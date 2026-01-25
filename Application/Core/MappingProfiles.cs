@@ -2,6 +2,7 @@ using System;
 using Application.Accounts.DTOs;
 using Application.Customers.DTOs;
 using Application.Dashboard.DTOs;
+using Application.Photos.DTOs;
 using Application.Rentals.DTOs;
 using Application.Vehicles.DTOs;
 using AutoMapper;
@@ -26,5 +27,6 @@ public class MappingProfiles : Profile
             .ForMember(dest => dest.Customer, opt => opt.MapFrom(src => src.User))
             .ForMember(d => d.Brand, opt => opt.MapFrom(s => s.Vehicle!.Brand))
             .ForMember(d => d.Model, opt => opt.MapFrom(s => s.Vehicle!.Model));
+        CreateMap<Photo, PhotoDto>();
     }
 }
