@@ -19,6 +19,7 @@ export default function RegisterForm() {
         },
         validators: {
             onChange: registerSchema,
+            onBlur: registerSchema
         },
         onSubmit: async ({ value }) => {
             await registerUser.mutateAsync(value)
@@ -42,7 +43,7 @@ export default function RegisterForm() {
                 </CardHeader>
                 <CardContent>
                     <form
-                        onChange={(e) => {
+                        onSubmit={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
                             form.handleSubmit()
@@ -89,20 +90,22 @@ export default function RegisterForm() {
                             />
                         </FieldGroup>
 
-                        <Button
-                            type="submit"
-                            className="w-full font-semibold"
-                            disabled={isRegisteringIn}
-                        >
-                            {isRegisteringIn ? (
-                                <>
-                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                    Registering Your Account...
-                                </>
-                            ) : (
-                                "Register Your Acccount"
-                            )}
-                        </Button>
+                        <div>
+                            <Button
+                                type="submit"
+                                className="w-full font-semibold"
+                                disabled={isRegisteringIn}
+                            >
+                                {isRegisteringIn ? (
+                                    <>
+                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                        Registering Your Account...
+                                    </>
+                                ) : (
+                                    "Register Your Acccount"
+                                )}
+                            </Button>
+                        </div>
 
                     </form>
                     <div className="mt-6">

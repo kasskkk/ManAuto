@@ -48,7 +48,7 @@ export const useAccounts = () => {
         },
         onSuccess: () => {
             toast.success('Register successfull - You may log in')
-            navigate('/login')
+            navigate('/loginForm')
         },
     });
 

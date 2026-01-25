@@ -78,6 +78,7 @@ export function LoginForm() {
                                             <FieldLabel>Password</FieldLabel>
                                         </div>
                                         <Input
+                                            readOnly
                                             type="password"
                                             placeholder="••••••••"
                                             value={field.state.value}
@@ -110,12 +111,12 @@ export function LoginForm() {
 
                     <div className="mt-6">
                         <Button
-                            type="submit"
+                            type="button"
                             className="w-full font-semibold"
                             disabled={isLoggingIn}
                         >
                             <Link to="/registerForm">
-                                Register
+                                Dont have an account? Register
                             </Link>
                         </Button>
                     </div>
@@ -134,7 +135,7 @@ export function LoginForm() {
                         <Button
                             variant="outline"
                             className="w-full mt-4 border-dashed border-primary/50 hover:bg-primary/5"
-                            onClick={() => loginUser.mutateAsync({ email: "bob@test.com", password: "Pa$$w0rd" })}
+                            onClick={() => loginUser.mutate({ email: "bob@test.com", password: "Pa$$w0rd" })}
                             disabled={isLoggingIn}
                         >
                             🚀 Quick Login as Bob
