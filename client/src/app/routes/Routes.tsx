@@ -5,7 +5,7 @@ import CustomersPage from "@/features/customers/CustomersPage"
 import RaportsPage from "@/features/raports/RaportsPage"
 import RentalsPage from "@/features/rentals/RentalsPage"
 import VehiclesPage from "@/features/vehicles/VehiclesPage"
-import VehicleForm from "@/features/vehicles/VehicleForm"
+import { VehicleForm } from "@/features/vehicles/form/VehicleForm"
 
 export const router = createBrowserRouter([
     {
