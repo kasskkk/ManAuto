@@ -21,7 +21,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-5">
-        <DashboardAreaChart data={dashboardSummary.rentalTrends}/>
+        <DashboardAreaChart data={dashboardSummary.rentalTrends} />
         <DashboardPieChart />
       </div>
 
