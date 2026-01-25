@@ -1,4 +1,5 @@
 using System;
+using Application.Photos.DTOs;
 using Application.Rentals.DTOs;
 using Domain.Entities;
 using Domain.Enums;
@@ -15,4 +16,5 @@ public class VehicleDetailsDto
     public required DateTime CreatedAt { get; set; }
     public required VehicleType VehicleType { get; set; }
     public ICollection<RentalDto> Rentals { get; set; } = [];
+    public ICollection<PhotoDto> Photos { get; set; } = [];
 }

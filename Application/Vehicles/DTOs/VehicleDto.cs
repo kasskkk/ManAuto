@@ -1,4 +1,6 @@
 using System;
+using Application.Photos.DTOs;
+using Domain.Entities;
 using Domain.Enums;
 
 namespace Application.Vehicles.DTOs;
@@ -12,4 +14,6 @@ public class VehicleDto
     public required int ProductionYear { get; set; }
     public required DateTime CreatedAt { get; set; }
     public required VehicleType VehicleType { get; set; }
+
+    public ICollection<PhotoDto> Photos { get; set; } = [];
 }

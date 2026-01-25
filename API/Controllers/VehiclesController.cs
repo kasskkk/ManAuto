@@ -9,9 +9,9 @@ namespace API.Controllers;
 public class VehiclesController : BaseApiController
 {
     [HttpPost]
-    public async Task<ActionResult<string>> Create(CreateVehicleDto vehicleDto)
+    public async Task<ActionResult<string>> Create([FromForm] CreateVehicleDto vehicleDto, List<IFormFile> files)
     {
-        return HandleResult(await Mediator.Send(new CreateVehicle.Command { VehicleDto = vehicleDto }));
+        return HandleResult(await Mediator.Send(new CreateVehicle.Command { VehicleDto = vehicleDto, Files = files }));
     }
 
     [HttpPut("{id}")]
