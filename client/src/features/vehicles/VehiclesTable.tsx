@@ -10,7 +10,7 @@ interface Props {
     vehicles: Vehicle[]
 }
 
-export default function VehiclesTable({vehicles}: Props) {
+export default function VehiclesTable({ vehicles }: Props) {
     return (
         <Card>
             <CardContent>
@@ -30,7 +30,15 @@ export default function VehiclesTable({vehicles}: Props) {
                                 <TableCell>
                                     <div className="flex items-center gap-3">
                                         <Avatar className="size-9 rounded-lg border">
+                                            {vehicle.mainPhotoUrl && (
+
+                                                <AvatarImage src={vehicle.mainPhotoUrl} className="rounded-lg" />
+                                            )}
                                             <AvatarImage src="https://github.com/shadcn.png" className="rounded-lg" />
+
+                                            <AvatarFallback className="rounded-lg">
+                                                {vehicle.brand?.substring(0, 2).toUpperCase() || "V"}
+                                            </AvatarFallback>
                                             <AvatarFallback className="rounded-lg">TS</AvatarFallback>
                                         </Avatar>
                                         <div className="flex flex-col">

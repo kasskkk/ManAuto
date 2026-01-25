@@ -13,6 +13,7 @@ public class VehicleDto
     public required string LicensePlate { get; set; }
     public required int ProductionYear { get; set; }
     public required DateTime CreatedAt { get; set; }
+    public required string MainPhotoUrl { get; set; }
     public required VehicleType VehicleType { get; set; }
 
     public ICollection<PhotoDto> Photos { get; set; } = [];

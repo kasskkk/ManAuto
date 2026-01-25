@@ -1,3 +1,5 @@
+import type { Photo } from "./photo"
+
 export interface Vehicle {
   id: string
   brand: string
@@ -6,4 +8,6 @@ export interface Vehicle {
   productionYear: number
   createdAt: string
   vehicleType: string
+  mainPhotoUrl: string
+  photos: Photo[];
 }
