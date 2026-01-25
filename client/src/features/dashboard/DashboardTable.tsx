@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardAction, CardContent } from "@/componen
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { TableHeader, TableRow, TableHead, TableBody, TableCell, Table } from "@/components/ui/table";
 import type { DashboardRecentRent } from "@/lib/types";
-import { MoreHorizontalIcon } from "lucide-react";
+import { Mail, MoreHorizontalIcon, Phone } from "lucide-react";
 
 interface Props {
     dashboardRecentRentals: DashboardRecentRent[];
@@ -42,7 +42,7 @@ export default function DashboardTable({ dashboardRecentRentals }: Props) {
                     </TableHeader>
                     <TableBody>
                         {dashboardRecentRentals.map((rental) => (
-                            <TableRow className="group">
+                            <TableRow key={rental.id} className="group">
                                 <TableCell>
                                     <div className="flex items-center gap-3">
                                         <Avatar className="size-9 rounded-lg border">
@@ -56,26 +56,40 @@ export default function DashboardTable({ dashboardRecentRentals }: Props) {
                                     </div>
                                 </TableCell>
                                 <TableCell>
-                                    <div className="flex flex-col">
-                                        <span className="text-sm font-medium">{rental.customer.phoneNumber}</span>
-                                        <span className="text-xs text-muted-foreground italic">{rental.customer.email}</span>
+                                    <div className="flex flex-col gap-1">
+                                        <span className="flex items-center gap-2 text-sm font-medium">
+                                            <Phone className="size-3.5 text-muted-foreground" />
+                                            {rental.customer.phoneNumber}
+                                        </span>
+
+                                        {/* Email */}
+                                        <span className="flex items-center gap-2 text-xs text-muted-foreground italic">
+                                            <Mail className="size-3.5" />
+                                            {rental.customer.email}
+                                        </span>
                                     </div>
                                 </TableCell>
                                 <TableCell>
                                     <div className="flex flex-col text-sm">
-                                        <span>{rental.createdAt}</span>
-                                        {/* <span className="text-[10px] uppercase text-muted-foreground font-semibold">3 Days</span> */}
+                                        <span>
+                                            {new Intl.DateTimeFormat('pl-PL', {
+                                                day: '2-digit',
+                                                month: '2-digit',
+                                                year: 'numeric',
+                                            }).format(new Date(rental.createdAt))}
+                                        </span>
+                                        <span className="text-xs text-muted-foreground">
+                                            {new Intl.DateTimeFormat('pl-PL', {
+                                                hour: '2-digit',
+                                                minute: '2-digit',
+                                            }).format(new Date(rental.createdAt))}
+                                        </span>
                                     </div>
                                 </TableCell>
                                 <TableCell>
                                     Total Price
                                 </TableCell>
                                 <TableCell>
-                                    {/* <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-                                        {rental.rentalStatus}
-                                        statusStyles[rental.rentalStatus]
-                                        ${ }
-                                    </span> */}
                                     <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusStyles[rental.rentalStatus] || 'bg-gray-100 text-gray-800'
                                         }`}>
                                         {rental.rentalStatus}
