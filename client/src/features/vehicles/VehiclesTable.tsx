@@ -5,6 +5,7 @@ import { Pagination, PaginationContent, PaginationItem, PaginationNext, Paginati
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import type { Vehicle } from '@/lib/types'
 import { Eye, Pencil } from 'lucide-react'
+import { Link } from 'react-router'
 
 interface Props {
     vehicles: Vehicle[]
@@ -62,10 +63,14 @@ export default function VehiclesTable({ vehicles }: Props) {
                                 </TableCell>
                                 <TableCell className="text-right">
                                     <Button variant="ghost" size="icon">
-                                        <Pencil />
+                                        <Link to={`/fleet/${vehicle.id}/edit`}>
+                                            <Pencil />
+                                        </Link>
                                     </Button>
                                     <Button variant="ghost" size="icon">
-                                        <Eye />
+                                        <Link to={`/fleet/${vehicle.id}`}>
+                                            <Eye />
+                                        </Link>
                                     </Button>
                                 </TableCell>
                             </TableRow>
@@ -86,6 +91,6 @@ export default function VehiclesTable({ vehicles }: Props) {
                     </PaginationContent>
                 </Pagination>
             </CardContent>
-        </Card>
+        </Card >
     )
 }

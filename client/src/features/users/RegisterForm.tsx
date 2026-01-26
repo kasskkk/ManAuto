@@ -116,7 +116,7 @@ export default function RegisterForm() {
                             className="w-full font-semibold"
                             disabled={isRegisteringIn}
                         >
-                            <Link to="/loginForm">
+                            <Link to="/login">
                                 Back to Login
                             </Link>
                         </Button>

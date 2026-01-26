@@ -16,15 +16,22 @@ export const router = createBrowserRouter([
         element: <App />,
         children: [
             { path: '', element: <DashboardPage /> },
+
             { path: 'dashboard', element: <DashboardPage /> },
+
             { path: 'customers', element: <CustomersPage /> },
+
             { path: 'fleet', element: <VehiclesPage /> },
+            { path: 'fleet/new', element: <VehicleForm /> },
+            { path: 'fleet/:id/edit', element: <VehicleForm /> },
+            { path: 'fleet/:id', element: <VehicleDetails /> },
+
             { path: 'rentals', element: <RentalsPage /> },
+
             { path: 'raports', element: <RaportsPage /> },
-            { path: 'vehicleForm', element: <VehicleForm /> },
-            { path: 'loginForm', element: <LoginForm /> },
-            { path: 'registerForm', element: <RegisterForm /> },
-            { path: 'details', element: <VehicleDetails /> },
+
+            { path: 'register', element: <RegisterForm /> },
+            { path: 'login', element: <LoginForm /> },
         ]
     }
 ])

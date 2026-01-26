@@ -115,7 +115,7 @@ export function LoginForm() {
                             className="w-full font-semibold"
                             disabled={isLoggingIn}
                         >
-                            <Link to="/registerForm">
+                            <Link to="/register">
                                 Dont have an account? Register
                             </Link>
                         </Button>

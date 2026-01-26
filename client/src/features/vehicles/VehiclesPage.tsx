@@ -47,7 +47,7 @@ export default function VehiclesPage() {
           </div>
 
           <Button asChild>
-            <Link to="/vehicleForm" className="flex items-center gap-2">
+            <Link to="/fleet/new" className="flex items-center gap-2">
               <Plus className="size-4" />
               Add new Car
             </Link>

@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <div className="flex flex-1 items-center justify-between">
                         <div className="font-semibold">Name of page</div>
                         <Button asChild variant="default">
-                            <Link to="/loginForm">
+                            <Link to="/login">
                                 Dev mode Login
                             </Link>
                         </Button>
